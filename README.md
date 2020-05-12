@@ -34,7 +34,13 @@ Now, run:
 $ bundle exec rubocop
 ```
 
-No need to include rubocop directly application dependencies. Hlrubo will include specific versions of `rubocop`, `rubocop-performance`, `rubocop-rails` and `rubocop-rspec` that is shared across projects.
+No need to include rubocop in application gemfile.
+
+Hlrubo will install [specific versions](https://github.com/homelight/hlrubo/blob/master/hlrubo.gemspec) of:
+- `rubocop`
+- `rubocop-performance`
+- `rubocop-rails`
+- `rubocop-rspec`
 
 ### GitHub Actions Integration using Pronto
 - Paste below in `.github/workflows/pronto.yml` of project root.
