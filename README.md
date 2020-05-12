@@ -42,7 +42,7 @@ Hlrubo will install [specific versions](https://github.com/homelight/hlrubo/blob
 - `rubocop-rails`
 - `rubocop-rspec`
 
-### GitHub Actions Integration using Pronto
+### GitHub Actions Integration using [Pronto](https://github.com/prontolabs/pronto)
 - Paste below in `.github/workflows/pronto.yml` of project root.
 
   ```yaml
