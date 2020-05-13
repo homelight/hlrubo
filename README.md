@@ -4,7 +4,7 @@ HomeLight shared ruby style configs.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add gem to application Gemfile:
 
 ```ruby
 group :development do
@@ -44,12 +44,12 @@ Hlrubo will install [specific versions](https://github.com/homelight/hlrubo/blob
 
 ### GitHub Actions Integration using [Pronto](https://github.com/prontolabs/pronto)
 #### Notes for below examples:
-- Examples should be in file of project root named `.github/workflows/pronto.yml`
 - Match `ruby-version: '2.6.6'` to repo ruby version.
 - Keep `"$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")"` as is.
 - For `secrets.PRONTO_TOKEN`, create token in `https://github.com/project/repo-name/settings/secrets`
 
 #### Basic Implementation Example:
+In `.github/workflows/pronto.yml` of project root add:
 ```yaml
 name: Pronto
 on: [pull_request]
@@ -68,6 +68,16 @@ jobs:
 ```
 
 #### Caching Implementation Example:
+Add below gems to application Gemfile:
+
+```ruby
+group :development do
+  gem "pronto"
+  gem "pronto-rubocop"
+end
+```
+
+In `.github/workflows/pronto.yml` of project root add:
 ```yaml
 name: Pronto
 on: [pull_request]
