@@ -8,7 +8,7 @@ Add gem to application Gemfile:
 
 ```ruby
 group :development do
-  gem "hlrubo"
+  gem "hlrubo", require: false
 end
 ```
 
@@ -68,12 +68,13 @@ jobs:
 ```
 
 #### Caching Implementation Example:
-Add below gems to application Gemfile:
+Add below to application Gemfile:
 
 ```ruby
-group :development do
-  gem "pronto"
-  gem "pronto-rubocop"
+group :rubocop do
+  gem "hlrubo", require: false
+  gem "pronto", require: false
+  gem "pronto-rubocop", require: false
 end
 ```
 
@@ -99,7 +100,7 @@ jobs:
       - name: Bundle install
         run: |
           bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
+          bundle install --jobs 4 --retry 3 --without default development test
       - run: git fetch
       - run: PRONTO_PULL_REQUEST_ID="$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")" PRONTO_GITHUB_ACCESS_TOKEN="${{ secrets.PRONTO_TOKEN }}" bundle exec pronto run -f github_pr -c origin/master
 ```
