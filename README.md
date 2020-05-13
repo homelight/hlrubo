@@ -61,7 +61,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-ruby@v1
         with:
-          ruby-version: '2.6.6'
+          ruby-version: "2.6.6"
       - run: gem install pronto pronto-rubocop hlrubo
       - run: git fetch
       - run: PRONTO_PULL_REQUEST_ID="$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")" PRONTO_GITHUB_ACCESS_TOKEN="${{ secrets.PRONTO_TOKEN }}" pronto run -f github_status github_pr -c origin/master
