@@ -9,6 +9,7 @@ AllCops:
     - "db/**/*"
     - "Rakefile"
     - "*.gemspec"
+    - "**/node_modules/**/*"
 
 Rails:
   Enabled: true
@@ -39,6 +40,7 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Exclude:
     - "config/routes.rb"
+    - "spec/**/*"
 
 Metrics/CyclomaticComplexity:
   Max: 10
